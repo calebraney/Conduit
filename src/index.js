@@ -1,7 +1,6 @@
 import { attr } from './utilities';
 import { scrollIn } from './interactions/scroll-in';
-import { marquee } from './interactions/marquee';
-import { accordion } from './interactions/accordion';
+import { load } from './interactions/load';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Comment out for production
@@ -32,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
       (gsapContext) => {
         let { isMobile, isTablet, isDesktop, reduceMotion } = gsapContext.conditions;
         //functional interactions
-        accordion(gsapContext);
-        marquee(gsapContext);
+        load(gsapContext);
         //conditional interactions
         if (!reduceMotion) {
           scrollIn(gsapContext);

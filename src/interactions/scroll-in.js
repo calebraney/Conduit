@@ -63,7 +63,7 @@ export const scrollIn = function (gsapContext) {
   const defaultTween = function (item, tl, options = {}) {
     const varsFrom = {
       opacity: 0,
-      y: '2rem',
+      y: '1rem',
     };
     const varsTo = {
       opacity: 1,
@@ -94,14 +94,14 @@ export const scrollIn = function (gsapContext) {
     }
     //split the text
     SplitText.create(item, {
-      type: 'words', // 'chars, words, lines
+      type: 'lines, words', // 'chars, words, lines
       autoSplit: true, //have it auto adjust based on width
       // mask: 'lines',
       onSplit(self) {
         // animation to run for the item
         const tl = scrollInTL(item);
 
-        tween = defaultTween(self.words, tl, { stagger: 'small' });
+        tween = defaultTween(self.lines, tl, { stagger: 'small' });
         //create callback function to revert text
         const revertText = function (self) {
           self.revert();
