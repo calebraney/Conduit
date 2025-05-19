@@ -1,10 +1,11 @@
 import { attr } from './utilities';
 import { scrollIn } from './interactions/scroll-in';
+import { imageSwitch } from './interactions/image-switch';
 import { load } from './interactions/load';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Comment out for production
-  console.log('Local Script');
+  // console.log('Local Script');
   // register gsap plugins if available
   if (gsap.ScrollTrigger !== undefined) {
     gsap.registerPlugin(ScrollTrigger);
@@ -35,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
         //conditional interactions
         if (!reduceMotion) {
           scrollIn(gsapContext);
+        }
+        if (!isMobile) {
+          imageSwitch();
         }
       }
     );
